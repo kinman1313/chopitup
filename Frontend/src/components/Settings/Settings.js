@@ -3,7 +3,31 @@ import { useAuth } from '../../context/AuthContext';
 import styled from 'styled-components';
 import { GlassContainer } from '../GlassContainer';
 import { updateUserSettings, getUserProfile } from '../../api';
+import styled, { keyframes } from 'styled-components';
 
+const slideIn = keyframes`
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+`;
+
+const SettingsPanel = styled.div`
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  animation: ${slideIn} 0.3s ease-in-out;
+`;
+export default function Settings() {
+    return (
+        <SettingsPanel>
+            {/* Settings UI */}
+        </SettingsPanel>
+    );
+}
 const SettingsPanel = styled(GlassContainer)`
   position: fixed;
   top: 0;

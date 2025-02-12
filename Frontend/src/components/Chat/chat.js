@@ -6,8 +6,41 @@ import VoiceRecorder from '../VoiceRecorder';
 import EmojiPicker from 'emoji-picker-react';
 import GiphySearch from 'react-giphy-searchbox';
 import { GlassContainer } from '../GlassContainer';
+import { useContext } from 'react';
+import { LoadingContext } from '../../context/LoadingContext';
+import LoadingSpinner from '../LoadingSpinner';
+// src/components/Chat/Chat.js
+import styled from 'styled-components';
+
+const Button = styled.button`
+  background: #2196F3;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+
+  &:hover {
+    background: #1976D2;
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+`;
 
 const Chat = () => {
+    return (
+        <div>
+            <Button onClick={sendMessage}>Send</Button>
+        </div>
+    );
+};
+
+const Chat = () => {
+    const { isLoading } = useContext(LoadingContext);
     const [messages, setMessages] = useState([]);
     const [input, setInput] = useState('');
     const [showEmojiPicker, setShowEmojiPicker] = useState(false);
@@ -41,6 +74,30 @@ const Chat = () => {
                 setIsSending(false);
             }
         }
+    };
+
+    const Chat = () => {
+        const [isSending, setIsSending] = useState(false);
+
+        const sendMessage = async () => {
+            setIsSending(true);
+            try {
+                await socket.emit('sendMessage', { content: input, room: 'lobby' });
+                setInput('');
+            } catch (err) {
+                console.error(err);
+            } finally {
+                setIsSending(false);
+            }
+        };
+
+        return (
+            <div>
+                <button onClick={sendMessage} disabled={isSending}>
+                    {isSending ? 'Sending...' : 'Send'}
+                </button>
+            </div>
+        );
     };
 
     const sendVoiceMessage = (audioFile) => {
