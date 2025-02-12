@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "socket.io-client": "^4.7.1",
+    "styled-components": "^6.0.8",
+    "emoji-picker-react": "^4.4.9",
+    "react-giphy-searchbox": "^0.3.0",
+    "react-media-recorder": "^1.6.5"
+  }
+}
