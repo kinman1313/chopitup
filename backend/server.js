@@ -72,6 +72,20 @@ io.on('connection', (socket) => {
         }
     });
 
+    socket.on('addReaction', async ({ messageId, reaction }) => {
+        try {
+            const message = await Message.findById(messageId);
+            if (!message.reactions) {
+                message.reactions = {};
+            }
+            message.reactions[reaction] = (message.reactions[reaction] || 0) + 1;
+            await message.save();
+            io.to(message.room).emit('messageUpdated', message);
+        } catch (err) {
+            console.error(err);
+        }
+    });
+
     // Typing indicator handler (new)
     socket.on('typing', ({ roomId, isTyping }) => {
         socket.to(roomId).emit('typing', {
