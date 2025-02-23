@@ -15,7 +15,7 @@
     "express": "^4.17.1",
     "giphy-js-sdk-core": "^1.0.6",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.10.9",
+    "mongoose": "^6.13.6",
     "path": "^0.12.7",
     "socket.io": "^4.0.0",
     "morgan": "^1.10.0",
