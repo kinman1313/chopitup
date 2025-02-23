@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSocket } from '../../context/SocketContext';
+import PropTypes from 'prop-types';
 
 const DirectMessage = ({ userId }) => {
   const [message, setMessage] = useState('');
@@ -24,6 +25,10 @@ const DirectMessage = ({ userId }) => {
       <button onClick={sendMessage}>Send</button>
     </div>
   );
+};
+
+DirectMessage.propTypes = {
+  userId: PropTypes.string.isRequired,
 };
 
 export default DirectMessage;

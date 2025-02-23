@@ -1,16 +1,16 @@
 // routes/userRoutes.js
 const express = require('express');
 const userController = require('../controllers/userController');
-const authMiddleware = require('../middleware/auth');
+const auth = require('../middleware/auth');
 const router = express.Router();
 
 // Update User Settings
-router.put('/settings', authMiddleware, userController.updateSettings);
+router.put('/settings', auth, userController.updateSettings);
 
 // Update Avatar
-router.post('/avatar', authMiddleware, userController.updateAvatar);
+router.post('/avatar', auth, userController.updateAvatar);
 
 // Get User Profile
-router.get('/profile', authMiddleware, userController.getProfile);
+router.get('/profile', auth, userController.getProfile);
 
 module.exports = router;

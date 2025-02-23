@@ -1,7 +1,20 @@
+const mongoose = require('mongoose');
+
 const userSchema = new mongoose.Schema({
-    username: { type: String, unique: true },
-    email: { type: String, unique: true },
-    password: String,
+    username: {
+        type: String,
+        required: true,
+        unique: true,
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true,
+    },
+    password: {
+        type: String,
+        required: true,
+    },
     avatar: String,
     settings: {
         chatBubble: { type: String, default: 'rounded' },
@@ -9,5 +22,11 @@ const userSchema = new mongoose.Schema({
         bubbleColor: { type: String, default: '#ffffff' }
     },
     resetPasswordToken: String,
-    resetPasswordExpires: Date
+    resetPasswordExpires: Date,
+    date: {
+        type: Date,
+        default: Date.now,
+    }
 });
+
+module.exports = mongoose.model('User', userSchema);

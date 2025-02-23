@@ -1,9 +1,11 @@
+// src/components/DMs.js
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import Chat from './Chat';
-import Invite from './Invite'; // Importing the Invite component
+import AdvancedChat from './Chat/AdvancedChat'; // Corrected path
+import SimpleChat from './SimpleChat'; // Corrected path
+import Invite from './Invite';
 import api from '../api';
-import { GlassContainer } from '../GlassContainer';
+import GlassContainer from './GlassContainer';
 
 const DMsContainer = styled(GlassContainer)`
   display: flex;
@@ -105,7 +107,7 @@ const DMs = () => {
                 ) : (
                     <ChatArea>
                         {selectedRoom ? (
-                            <Chat room={selectedRoom} />
+                            <AdvancedChat roomId={selectedRoom.id} /> // Using AdvancedChat for chat room
                         ) : (
                             <p>Please select a chat room to start messaging.</p>
                         )}

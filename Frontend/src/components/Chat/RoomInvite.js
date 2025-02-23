@@ -1,5 +1,7 @@
+// src/components/Chat/RoomInvite.js
 import React, { useState } from 'react';
-import { useSocket } from '../../context/SocketContext';
+import { useSocket } from '../context/SocketContext';
+import PropTypes from 'prop-types';
 
 const RoomInvite = ({ roomId }) => {
   const [email, setEmail] = useState('');
@@ -24,6 +26,10 @@ const RoomInvite = ({ roomId }) => {
       <button onClick={inviteUser}>Invite</button>
     </div>
   );
+};
+
+RoomInvite.propTypes = {
+  roomId: PropTypes.string.isRequired,
 };
 
 export default RoomInvite;

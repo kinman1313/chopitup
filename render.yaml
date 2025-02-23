@@ -3,11 +3,17 @@ services:
     name: chat-backend
     env: node
     buildCommand: npm install
-    startCommand: node server.js
+    startCommand: npm start  # This will use the "start" script in package.json
     envVars:
       - key: MONGODB_URI
-        value: your-mongodb-atlas-uri
+        fromDatabase: MONGODB_URI
       - key: JWT_SECRET
-        generateValue: true
+        fromDatabase: JWT_SECRET
       - key: GIPHY_API_KEY
-        value: your-giphy-api-key
+        fromDatabase: GIPHY_API_KEY
+      - key: CLIENT_URL
+        fromDatabase: CLIENT_URL
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000

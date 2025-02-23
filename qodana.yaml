@@ -1,0 +1,34 @@
+version: "1.0"
+profile:
+  name: qodana.starter
+include:
+  - name: DotEnvDuplicateKeyInspection
+  - name: DotEnvExtraBlankLineInspection
+  - name: DotEnvSpaceAroundSeparatorInspection
+  - name: EditorConfigDeprecatedDescriptor
+  - name: EditorConfigReferenceCorrectness
+  - name: EditorConfigValueCorrectness
+  - name: EditorConfigRootDeclarationUniqueness
+  - name: EditorConfigEmptySection
+  - name: EditorConfigEmptyHeader
+  - name: EditorConfigShadowedOption
+  - name: EditorConfigPartialOverride
+  - name: EditorConfigShadowingOption
+  - name: EditorConfigWildcardRedundancy
+  - name: EditorConfigOptionRedundancy
+  - name: EditorConfigUnexpectedComma
+  - name: EditorConfigNumerousWildcards
+  - name: EditorConfigSpaceInHeader
+  - name: EditorConfigMissingRequiredDeclaration
+  - name: EditorConfigPairAcceptability
+  - name: EditorConfigCharClassRedundancy
+  - name: EditorConfigUnusedDeclaration
+  - name: EditorConfigPatternEnumerationRedundancy
+  - name: EditorConfigKeyCorrectness
+  - name: EditorConfigListAcceptability
+  - name: EditorConfigRootDeclarationCorrectness
+  - name: JsonSchemaCompliance
+  - name: Json5StandardCompliance
+  - name: JsonStandardCompliance
+  - name: JsonSchemaDeprecation
+  - name: JsonSchemaRefReference

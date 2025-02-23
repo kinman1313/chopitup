@@ -1,8 +1,16 @@
+// src/components/Chat/VoiceRecorder.js
 import React from 'react';
 import { useMediaRecorder } from 'react-media-recorder';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
+// Keyframe animation for fade-in effect
+const fadeIn = keyframes`
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+`;
+
+// Styled Recorder container component
 const RecorderContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -11,6 +19,7 @@ const RecorderContainer = styled.div`
   margin-top: 10px;
 `;
 
+// Styled Recorder button component
 const RecorderButton = styled.button`
   padding: 10px 20px;
   border: none;
@@ -24,6 +33,7 @@ const RecorderButton = styled.button`
   }
 `;
 
+// VoiceRecorder component definition
 const VoiceRecorder = ({ onStop }) => {
     const { status, startRecording, stopRecording, mediaBlobUrl } = useMediaRecorder({
         audio: true,

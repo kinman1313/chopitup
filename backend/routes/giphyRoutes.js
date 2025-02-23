@@ -7,13 +7,13 @@ const router = express.Router();
 
 // Search for GIFs
 router.get('/search', async (req, res) => {
-    const { q } = req.query;
-    try {
-        const response = await client.search('gifs', { q, limit: 10 });
-        res.json(response.data);
-    } catch (err) {
-        res.status(500).json({ error: 'Failed to fetch GIFs' });
-    }
+  const { q } = req.query;
+  try {
+    const response = await client.search('gifs', { q, limit: 10 });
+    res.json(response.data);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to fetch GIFs' });
+  }
 });
 
 module.exports = router;
